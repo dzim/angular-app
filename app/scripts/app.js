@@ -16,8 +16,11 @@ var app = angular
 	'ngRoute',
 	'ngSanitize',
 	'ngTouch',
-	'ui.bootstrap'
-  ]);
+	'ui.bootstrap',
+	'firebase'
+  ])
+    .constant('FIREBASE_URL', 'fill here');
+
 
 
 app.config(function ($routeProvider) {
@@ -29,6 +32,10 @@ app.config(function ($routeProvider) {
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
+      })
+      .when('/posts/:postId', {
+        templateUrl: 'views/showpost.html',
+        controller: 'PostViewCtrl'
       })
       .otherwise({
         redirectTo: '/'
